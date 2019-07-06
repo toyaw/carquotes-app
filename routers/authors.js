@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-
+const Author = require('../models/author')
 //All service
 router.get('/', (req, res) => {
   res.render('authors/index')
@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
 
 //new service
 router.get('/new', (req, res) => {
-    res.render('authors/new')
+    res.render('authors/new', { author: new Author()})
   })
 
   //create service
