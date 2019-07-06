@@ -13,7 +13,7 @@ router.get('/new', (req, res) => {
 
   //create service
   router.post('/', (req, res) => {
-    res.send('create')
+    res.send('req.body.name')
   })
 //
 
