@@ -1,16 +1,18 @@
 const express = require('express')
 const router = express.Router()
-const Author = require('../models/author')
-//All service
+const Mechanic = require('../models/mechanic')
+
+
+//All Mechanic
 router.get('/', async (req, res) => {
   let searchOptions = {}
   if (req.query.name != null && req.query.name !== '') {
     searchOptions.name = new RegExp(req.query.name, 'i')
   }
   try {
-    const authors = await Author.find(searchOptions)
-    res.render('authors/index', { 
-      authors: authors,
+    const mechanics = await Mechanic.find(searchOptions)
+    res.render('mechanics/index', { 
+      mechanics: mechanics,
        searchOptions: req.query})
   } catch {
     res.redirect('/')
@@ -18,23 +20,23 @@ router.get('/', async (req, res) => {
   
 })
 
-//new service
+//new Mechanic
 router.get('/new', (req, res) => {
-    res.render('authors/new', { author: new Author() })
+    res.render('mechanics/new', { mechanic: new Mechanic() })
   })
 
-  //create service
+  //create Mechanic
   router.post('/', async (req, res) => {
-    const author = new Author({
+    const mechanic = new Mechanic({
       name: req.body.name
     })
     try {
-      const newAuthor = await author.save()
-      //res.redirect(`authors/${newAuthor.id}`)
-      res.redirect(`authors`)
+      const newMechanic = await mechanic.save()
+      //res.redirect(`mechanics/${newMechanic.id}`)
+      res.redirect(`mechanic`)
     } catch {
-      res.render('authors/new', {
-    author: author,
+      res.render('mechanics/new', {
+    mechanic: mechanic,
     errorMessage: 'Error creating new item'
   })
     }
