@@ -26,19 +26,6 @@ router.get('/new', (req, res) => {
     errorMessage: 'Error creating new item'
   })
     }
-    //  author.save((err, newAuthor) => { 
-    //  if (err) {
-      //  res.render('authors/new', {
-    //author: author,
-    //errorMessage: 'Error creating new item'
-      //})
-    //} else {
-      //res.redirect(`authors/${newAuthor.id}`)
-      //res.redirect(`authors`)
-    //}
-  //})
-    //res.send(req.body.name)
-//})
-//
+    })
 
 module.exports = router
