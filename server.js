@@ -4,10 +4,13 @@ if (process.env.NODE_ENV !== 'production') {
 const express = require('express')
 const app = express()
 const expressLayouts = require('express-ejs-layouts')
+const bodyParser = require('body-parser')
 
 const indexRouter = require('./routers/index')
-const mechanicRouter = require('./routers/mechanic')
-const bodyParser = require('body-parser')
+const mechanicRouter = require('./routers/mechanics')
+const serviceRouter = require('./routers/services')
+
+
 app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
 app.set('layout', 'layouts/layout')
@@ -23,6 +26,7 @@ db.once('open', () => console.log('Connected to Mongoose'))
 
 app.use('/', indexRouter)
 app.use('/mechanics', mechanicRouter)
-'mechanics/new'
+app.use('/services', serviceRouter)
+
 
 app.listen(process.env.PORT || 3000)
