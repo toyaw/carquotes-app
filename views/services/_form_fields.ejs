@@ -1,8 +1,8 @@
 <label>Service</label>
-<input type="text" name="service" value=" <%= service.Service %>">
+<input type="text" name="title" value=" <%= service.Service %>">
 <label>Mechanic</label>
 <select name="mechanic"
-<% mechanic.forEach(mechnic => { %>
+<% mechanic.forEach(mechanic => { %>
 <% if (mechanic.id === service.mechanic) { %>
     <option selected lable="<%= mechanic.name %" value="<%= mechanic.id%>"
     <% } else { %>
@@ -12,3 +12,7 @@
 <% }) %>
 </select>
 //<input type="text" name="service" value=" <%= service.Service %>">
+<label>Purchase Date</label>
+<input type="date" name="purchaseDate"
+     value=" <%= service.purchaseDate == null ? ''  :
+     book.purchaseDate.toISOString().split('T')[0] %>">
