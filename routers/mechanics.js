@@ -3,7 +3,7 @@ const router = express.Router()
 const mechanic = require('../models/mechanic')
 
 
-//All Mechanic
+//All Mechanic Routes
 router.get('/', async (req, res) => {
   let searchOptions = {}
   if (req.query.name != null && req.query.name !== '') {
@@ -20,12 +20,12 @@ router.get('/', async (req, res) => {
   
 })
 
-//new Mechanic
+//new Mechanic Routes
 router.get('/new', (req, res) => {
     res.render('mechanics/new', { mechanic: new Mechanic() })
   })
 
-  //create Mechanic
+  //create Mechanic Routes
   router.post('/', async (req, res) => {
     const mechanic = new Mechanic({
       name: req.body.name

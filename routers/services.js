@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const Service = require('../models/service')
-
+const Mechanic = require('../models/mechanic')
 
 
 
@@ -11,9 +11,17 @@ router.get('/', async (req, res) => {
 })
 
 //new Service Route
-router.get('/new', (req, res) => {
-  res.send('New Service')
-    //res.render('mechanics/new', { mechanic: new Mechanic() })
+router.get('/new', async (req, res) => {
+  try {
+    const mechanics = await Mechanics.find({})
+    const service = new Service()
+    res.render('/services/new', {
+      mechanics: mechanics,
+      service: service
+    })
+  } catch {
+res.redirect('/services')
+  }
   })
 
   //create Service Route

@@ -1,0 +1,14 @@
+<label>Service</label>
+<input type="text" name="service" value=" <%= service.Service %>">
+<label>Mechanic</label>
+<select name="mechanic"
+<% mechanic.forEach(mechnic => { %>
+<% if (mechanic.id === service.mechanic) { %>
+    <option selected lable="<%= mechanic.name %" value="<%= mechanic.id%>"
+    <% } else { %>
+    <option lable="<%= mechanic.name %" value="<%= mechanic.id%>"
+<% }) %>
+
+<% }) %>
+</select>
+//<input type="text" name="service" value=" <%= service.Service %>">
