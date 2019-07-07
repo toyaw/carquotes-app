@@ -1,3 +1,4 @@
+<div>
 <label>Service</label>
 <input type="text" name="title" value=" <%= service.Service %>">
 <label>Mechanic</label>
@@ -11,8 +12,23 @@
 
 <% }) %>
 </select>
+</div>
+<div>
 //<input type="text" name="service" value=" <%= service.Service %>">
 <label>Purchase Date</label>
 <input type="date" name="purchaseDate"
      value=" <%= service.purchaseDate == null ? ''  :
      book.purchaseDate.toISOString().split('T')[0] %>">
+</div>
+<div>
+    <label>Service Count</label>
+    <input type="number" name="serviceCount" min="1" value=" <%= service.serviceCount= %>">
+</div>
+<div>
+    <label>Service Image Name</label>
+    <input type="file" name="cover">
+</div>
+<div>
+    <label>Description</label>
+    <textarea name="description"><%= service.description %></textarea>
+</div>
