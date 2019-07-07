@@ -2,8 +2,14 @@ const express = require('express')
 const router = express.Router()
 const Author = require('../models/author')
 //All service
-router.get('/', (req, res) => {
-  res.render('authors/index')
+router.get('/', async (req, res) => {
+  try {
+    const authors = await Author.find({})
+    res.render('authors/index', { authors: authors})
+  } catch {
+    res.redirect('/')
+  }
+  
 })
 
 //new service
