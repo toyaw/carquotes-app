@@ -13,11 +13,13 @@ router.get('/new', (req, res) => {
 
   //create service
   router.post('/', async (req, res) => {
-    const author = Author({
+    const author = new Author({
       name: req.body.name
     })
     try {
       const newAuthor = await author.save()
+      //res.redirect(`authors/${newAuthor.id}`)
+      res.redirect(`authors`)
     } catch {
       res.render('authors/new', {
     author: author,
@@ -27,7 +29,7 @@ router.get('/new', (req, res) => {
     //  author.save((err, newAuthor) => { 
     //  if (err) {
       //  res.render('authors/new', {
-    author: author,
+    //author: author,
     //errorMessage: 'Error creating new item'
       //})
     //} else {
@@ -36,7 +38,7 @@ router.get('/new', (req, res) => {
     //}
   //})
     //res.send(req.body.name)
-})
+//})
 //
 
 module.exports = router
