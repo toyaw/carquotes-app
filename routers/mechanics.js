@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const mechanic = require('../models/mechanic')
+const Mechanic = require('../models/mechanic')
 
 
 //All Mechanic Routes
@@ -33,7 +33,7 @@ router.get('/new', (req, res) => {
     try {
       const newMechanic = await mechanic.save()
       //res.redirect(`mechanics/${newMechanic.id}`)
-      res.redirect(`mechanic`)
+      res.redirect(`mechanics`)
     } catch {
       res.render('mechanics/new', {
     mechanic: mechanic,

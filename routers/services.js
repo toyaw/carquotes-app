@@ -15,7 +15,7 @@ router.get('/new', async (req, res) => {
   try {
     const mechanics = await Mechanics.find({})
     const service = new Service()
-    res.render('/services/new', {
+    res.render('services/new', {
       mechanics: mechanics,
       service: service
     })
