@@ -18,16 +18,16 @@ router.get('/', async (req, res) => {
   if (req.query.purchaseAfter != null && req.query.purchaseAfter != '') {
     query = query.gte('purchasehDate', req.query.purchaseAfter)
   }
-  //try {
-    //const services = await query.exec()
-    //res.render('services/index', {
-      //services: services,
-      //searchOptions: req.query
+  try {
+    const services = await query.exec()
+    res.render('services/index', {
+      services: services,
+      searchOptions: req.query
     })
- // } catch {
-  //  res.redirect('/')
-  //}
-//})
+  } catch {
+   res.redirect('/')
+  }
+})
 
 // New Service Route
 router.get('/new', async (req, res) => {

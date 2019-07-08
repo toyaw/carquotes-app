@@ -1,0 +1,18 @@
+<h1>My Account:</h1>
+
+<div>
+    <label>First Name:</label><br>
+    {{user.first_name}}
+</div><br>
+<div>
+    <label>Last Name:</label><br>
+    {{user.last_name}}
+</div><br>
+<div>
+    <label>Username:</label><br>
+    {{user.user_name}}
+</div><br>
+
+</div><br>
+<a href="/users/{{user.id}}/edit"><button class="btn secondary">Edit my Account</button></a>
+<a href="/users/{{user.id}}/projects"><button class="btn">Go to my Dashboard</button></a>
