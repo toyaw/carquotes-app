@@ -1,0 +1,9 @@
+<% serviceCoverClass = locals.large ? 'service-cover-large' : '' %>
+<% serviceGridClass = locals.large ? 'service-grid-large' : '' %>
+<div class="service-grid <%= serviceGridClass %>">
+  <% services.forEach(service => { %>
+    <a href="/services/<%= service.id %>">
+      <img class="service-cover <%= serviceCoverClass %>" src="<%= service.coverImagePath %>">
+    </a>
+  <% }) %>
+</div>

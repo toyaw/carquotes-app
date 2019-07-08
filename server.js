@@ -5,7 +5,6 @@ const express = require('express')
 const app = express()
 const expressLayouts = require('express-ejs-layouts')
 const bodyParser = require('body-parser')
-
 const indexRouter = require('./routers/index')
 const mechanicRouter = require('./routers/mechanics')
 const serviceRouter = require('./routers/services')

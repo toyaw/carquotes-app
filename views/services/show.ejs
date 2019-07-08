@@ -1,0 +1,21 @@
+<h2 class="page-header"><%= service.service %></h2>
+<div class="service-details">
+  <div>
+    <img class="service-cover" src="<%= service.serviceImagePath %>">
+    <div class="service-details-btn-grid">
+      <a class="btn btn-primary" href="/services/<%= service.id %>/edit">Edit</a>
+      <%- include('../partials/deleteForm', { url: `/services/${service.id}` }) %>
+      <a class="btn btn-primary service-details-service-button" href="/services/<%= service.mechanic.id %>">View Mechanic</a>
+    </div>
+  </div>
+  <div class=service-details-grid">
+    <div class=service-details-label">Mechanic:</div>
+    <div><%=service.mechanic.name %></div>
+    <div class=service-details-label">Purchase Date:</div>
+    <div><%=service.purchaseDate.toDateString() %></div>
+    <div class=service-details-label">Page Count:</div>
+    <div><%=service.pageCount %></div>
+    <div class=service-details-label">Description:</div>
+    <div><%=service.description %></div>
+  </div>
+</div>

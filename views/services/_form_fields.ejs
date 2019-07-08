@@ -1,34 +1,41 @@
-<div>
+<div class="form-row">
+  <div class="form-item">
 <label>Service</label>
-<input type="text" name="title" value=" <%= service.Service %>">
+<input type="text" name="title" value="<%= service.Service %>">
+  </div>
+  <div class="form-item">
 <label>Mechanic</label>
-<select name="mechanic"
-<% mechanic.forEach(mechanic => { %>
+<select name="mechanic">
+<% mechanics.forEach(mechanic => { %>
 <% if (mechanic.id === service.mechanic) { %>
     <option selected lable="<%= mechanic.name %" value="<%= mechanic.id%>"
     <% } else { %>
-    <option lable="<%= mechanic.name %" value="<%= mechanic.id%>"
-<% }) %>
+    <option lable="<%= mechanic.name %>" value="<%= mechanic.id%">
+<% } %>
 
 <% }) %>
 </select>
 </div>
-<div>
-//<input type="text" name="service" value=" <%= service.Service %>">
+  </div>
+  <div class="form-row">
+  <div class="form-item">
 <label>Purchase Date</label>
 <input type="date" name="purchaseDate"
      value=" <%= service.purchaseDate == null ? ''  :
      book.purchaseDate.toISOString().split('T')[0] %>">
 </div>
-<div>
+<div class="form-item">
     <label>Service Count</label>
-    <input type="number" name="serviceCount" min="1" value=" <%= service.serviceCount= %>">
+    <input type="number" name="serviceCount" min="1" value=" <%= service.serviceCount %>">
 </div>
 <div>
-    <label>Service Image Name</label>
-    <input type="file" name="cover">
-</div>
-<div>
+    div class="form-row">
+  <div class="form-item form-item-no-grow">
+    <label>Cover</label>
+    <input type="file" name="cover" class="book-cover filepond">
+  </div>
+  <div class="form-item">
     <label>Description</label>
-    <textarea name="description"><%= service.description %></textarea>
+    <textarea name="description"><%= book.description %></textarea>
+  </div>
 </div>

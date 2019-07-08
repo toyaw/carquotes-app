@@ -1,11 +1,24 @@
-<h2>Search Mechanics</h2>
+<h2 class="page-header">Search Mechanics</h2>
 <form action="/mechanics" method="GET">
-    <lable>Name</lable>
-<input type="text" name="name" value="<%= searchOptions.name %>">
-<button type="submit">Search</button>
+  <div class="form-row">
+    <div class="form-item">
+      <label>Name</label>
+      <input type="text" name="name" value="<%= searchOptions.name %>">
+    </div>
+  </div>
+  <div class="form-row form-row-end">
+    <button class="btn btn-primary" type="submit">Search</button>
+  </div>
 </form>
-
 <br>
 <% mechanics.forEach(mechanic => { %>
-<div><%= mechanic.name %></div>
+  <div class="mechanic-row">
+    <div class="mechanic-name"><%= mechanic.name %></div>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="/mechanics/<%= mechanic.id %>">View</a>
+      <a class="btn btn-primary" href="/mechanics/<%= mechanic.id %>/edit">Edit</a>
+      <%- include('../partials/deleteForm',
+                  { url: `/mechanics/${mechanic.id}` }) %>
+    </div>
+  </div>
 <% }) %>

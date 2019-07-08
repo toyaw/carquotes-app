@@ -1,0 +1,24 @@
+<h2 class="page-header">Search Service</h2>
+<form action="/services" method="GET">
+  <div class="form-row">
+    <div class="form-item">
+      <label>Service</label>
+      <input type="text" name="service" value="<%= searchOptions.service %>">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-item">
+      <label>Purchase After</label>
+      <input type="date" name="purchaseAfter" value="<%= searchOptions.purchaseAfter %>">
+    </div>
+    <div class="form-item">
+      <label>Purchase Before</label>
+      <input type="date" name="purchaseBefore" value="<%= searchOptions.purchaseBefore %>">
+    </div>
+  </div>
+  <div class="form-row form-row-end">
+    <button class="btn btn-primary" type="submit">Search</button>
+  </div>
+</form>
+<br>
+<%- include('../partials/bookGrid', { services: services, large: true }) %>
